@@ -1,32 +1,3 @@
-// class Form {
-//   constructor() {
-//     this.form = document.getElementById('form');
-//     this.submitBtn = document.getElementById('submit');
-
-//     this.username = document.getElementById('username');
-//     this.email = document.getElementById('email');
-//     this.zip = document.getElementById('zip');
-//     this.password = document.getElementById('password');
-//     this.confirm = document.getElementById('confirm');
-//   }
-
-//   handleInput = () => {
-//     this.username.addEventListener('input', () => {
-//       this.validateUsername();
-//     });
-//   };
-
-//   validateUsername = () => {
-//     const validityState = this.username.validity;
-
-//     switch (true) {
-//       case validityState.valueMissing:
-//         console.log('value missing');
-//         break;
-//     }
-//   };
-// }
-
 class FormField {
   constructor(element) {
     this.element = element;
@@ -44,29 +15,37 @@ class FormField {
   validate = () => {
     if (this.element.validity.valid) {
       this.valid = true;
-      console.log('input is valid');
-
+      handleErrors(this.element, '');
       return;
     }
 
     switch (true) {
       case this.validityState.valueMissing:
-        console.log('value missing');
+        handleErrors(this.element, 'required');
         break;
       case this.validityState.typeMismatch:
-        console.log('wrong type');
+        handleErrors(this.element, 'invalid email');
         break;
       case this.validityState.patternMismatch:
-        console.log('not match the pattern');
+        handleErrors(this.element, 'invalid pattern');
         break;
       case this.validityState.tooShort:
-        console.log('too short');
+        handleErrors(this.element, 'too short');
         break;
       case this.validityState.tooLong:
-        console.log('too long');
+        handleErrors(this.element, 'too long');
         break;
     }
   };
+}
+
+function handleErrors(element, msg) {
+  const errorMsgEl = element.nextElementSibling;
+  errorMsgEl.textContent = msg;
+
+  msg
+    ? (element.style.outline = '2px solid #ce1212')
+    : (element.style.outline = '2px solid #3b3b3b');
 }
 
 const username = new FormField(document.getElementById('username'));

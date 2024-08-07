@@ -23,16 +23,16 @@
 
 /* GENERAL STYLING START */
 :root {
-  --bx-shadow: 0 0 20px hsla(0, 0%, 35%, 0.199);
+  --bx-shadow: 0 0 20px #59595933;
   --b-radius-main: 0.5rem;
   --b-radius-input: 2px;
-  --outline-light: 2px solid hsla(0, 0%, 63%, 0.63);
-  --outline-bold: 2px solid hsl(0, 0%, 13%);
+  --outline-light: 2px solid #a1a1a1a1;
+  --outline-bold: 2px solid #212121;
 
-  --input-clr: hsl(0, 0%, 23%);
-  --err-clr: hsl(0, 84%, 44%);
-  --fc-main: hsl(0, 0%, 13%);
-  --fc-white: hsl(0, 0%, 100%);
+  --input-clr: #3b3b3b;
+  --err-clr: #ce1212;
+  --fc-main: #212121;
+  --fc-white: #ffffff;
 
   --fs-large: 3rem;
   --fs-medium: 1.4rem;
@@ -130,5 +130,3 @@ input-field:focus-visible {
   margin-top: 3rem;
   font-weight: 600;
 }
-
-/* FORM END */
