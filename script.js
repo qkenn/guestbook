@@ -4,11 +4,17 @@ const errorMsg = document.getElementById('error-msg');
 
 emailInput.addEventListener('input', () => {
   if (emailInput.validity.valueMissing) {
-    errorMsg.textContent = 'Please enter a value';
+    errorMsg.textContent = 'email required';
   } else if (emailInput.validity.typeMismatch) {
-    errorMsg.textContent = 'valid pattern';
+    errorMsg.textContent = 'enter a valid email';
   } else {
     errorMsg.textContent = '';
+  }
+
+  if (!emailInput.validity.valid) {
+    emailInput.style.outline = '2px solid red';
+  } else {
+    emailInput.style.outline = '2px solid green';
   }
 });
 

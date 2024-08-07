@@ -8,12 +8,23 @@
     <title>Constraint Validation API</title>
   </head>
   <body>
+    <header class="header">
+      <h1 class="title">Constraint Validation API</h1>
+    </header>
+
     <main class="main">
       <form id="form" class="form" novalidate>
-        <label for="email">Email:</label>
-        <input type="email" id="email" class="form-field" required />
-        <div id="error-msg" class="error"></div>
-        <button type="submit" id="submit">Submit</button>
+        <h2 class="form-title">Sign Up</h2>
+
+        <div class="form-field">
+          <label for="email" class="label"
+            ><span class="required-label">*</span>email</label
+          >
+          <input type="email" id="email" class="input-field" required />
+          <div id="error-msg" class="error"></div>
+        </div>
+
+        <button type="submit" id="submit" class="submit-btn">Submit</button>
       </form>
     </main>
   </body>

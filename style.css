@@ -1,3 +1,47 @@
+/* CUSTOM FONT START */
+@font-face {
+  font-family: 'futura-renner';
+  src: url('./fonts/FuturaRenner-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-renner';
+  src: url('./fonts/FuturaRenner-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futura-renner';
+  src: url('./fonts/FuturaRenner-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+/* CUSTOM FONT END */
+
+/* GENERAL STYLING START */
+:root {
+  --bx-shadow: 0 0 20px hsla(0, 0%, 35%, 0.199);
+  --b-radius-main: 0.5rem;
+  --b-radius-input: 2px;
+  --outline-light: 2px solid hsla(0, 0%, 63%, 0.63);
+  --outline-bold: 2px solid hsl(0, 0%, 13%);
+
+  --input-clr: hsl(0, 0%, 23%);
+  --err-clr: hsl(0, 84%, 44%);
+  --fc-main: hsl(0, 0%, 13%);
+  --fc-white: hsl(0, 0%, 100%);
+
+  --fs-larger: 3.5rem;
+  --fs-large: 2rem;
+  --fs-medium: 1.5rem;
+  --fs-normal: 1.2rem;
+
+  --field-gap: 0.1em;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +49,94 @@
 }
 
 body {
-  font: 1rem/1.7 Arial, sans-serif;
-  color: hsl(0, 0%, 13%);
+  font: 1rem/1.7 'futura-renner', sans-serif;
+  font-size: 1rem;
+  color: var(--main-fc);
 }
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  font-weight: normal;
+}
+/* GENERAL STYLING END */
+
+/* HEADER START */
+.header {
+  margin: 10rem 0 2rem 0;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--fs-larger);
+}
+/* HEADER END */
+
+/* MAIN START */
+.main {
+  max-width: 35rem;
+  margin: 0 auto;
+}
+/* MAIN END */
+
+/* FORM START */
+.form {
+  padding: 3rem;
+  box-shadow: var(--bx-shadow);
+  border-radius: var(--b-radius-main);
+  margin: 5rem 0;
+}
+
+.form-title {
+  font-size: var(--fs-large);
+  margin-bottom: 1em;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+.label {
+  font-size: var(--fs-medium);
+}
+
+.input-field {
+  padding: 0.2em 0.5em;
+  font-size: var(--fs-normal);
+  color: var(--input-clr);
+  border: none;
+  border-radius: var(--b-radius-input);
+  outline: var(--outline-light);
+}
+
+.input-field:focus,
+.input-field:active,
+input-field:focus-visible {
+  outline: var(--outline-bold);
+}
+
+.error {
+  color: var(--err-clr);
+}
+
+.required-label {
+  color: var(--err-clr);
+  margin-right: 0.2em;
+}
+
+.submit-btn {
+  color: var(--fc-white);
+  background-color: var(--fc-main);
+  border: none;
+  padding: 0.5em 1.5em;
+  font-size: 1rem;
+  border-radius: var(--b-radius-main);
+  cursor: pointer;
+  margin-top: 3rem;
+  font-weight: 600;
+}
+
+/* FORM END */
