@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
-    <title>Constraint Validation API</title>
+    <title>Kenny's Guestbook</title>
   </head>
   <body>
-    <header class="header">
-      <h1 class="title">Constraint Validation API</h1>
-    </header>
-
     <main class="main">
       <form id="form" class="form" novalidate>
+        <h2 class="title">Kenny's Guestbook</h2>
+
         <div class="form-field">
           <label for="username" class="label"
-            >username <span class="required-label">*</span></label
+            >username<span class="required-label">*</span></label
           >
           <input
             type="text"
@@ -32,7 +30,7 @@
 
         <div class="form-field">
           <label for="email" class="label"
-            >email <span class="required-label">*</span></label
+            >email<span class="required-label">*</span></label
           >
           <input
             type="email"
@@ -53,6 +51,7 @@
             <option value="sweden">Sweden</option>
             <option value="australia">Australia</option>
             <option value="germany">Germany</option>
+            <option value="other">Other</option>
           </select>
           <div class="error"></div>
         </div>
@@ -71,7 +70,7 @@
 
         <div class="form-field">
           <label for="password" class="label"
-            >password <span class="required-label">*</span></label
+            >password<span class="required-label">*</span></label
           >
           <input
             id="password"
@@ -85,7 +84,7 @@
 
         <div class="form-field">
           <label for="confirm" class="label"
-            >confirm password <span class="required-label">*</span></label
+            >confirm password<span class="required-label">*</span></label
           >
           <input
             id="confirm"
@@ -97,7 +96,7 @@
           <div class="error"></div>
         </div>
 
-        <button type="submit" id="submit" class="submit-btn">Sign Up</button>
+        <button type="submit" id="submit" class="submit-btn">Signing in</button>
       </form>
     </main>
   </body>

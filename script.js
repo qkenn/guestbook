@@ -87,7 +87,7 @@ function checkMatch() {
   const errMsg = confirmPass.element.nextElementSibling;
 
   if (passValue !== confirmValue && confirmValue) {
-    errMsg.textContent = 'password not match';
+    errMsg.textContent = 'passwords not match';
     confirmPass.element.style.outline = '2px solid #ce1212';
     return;
   }
@@ -109,12 +109,12 @@ document.getElementById('form').addEventListener('submit', (e) => {
     password.element.validity.valid &&
     confirmPass.element.validity.valid
   ) {
-    window.alert('Success');
+    window.alert('Success, Thank you for a wonderful stay!');
     document
       .querySelectorAll('.input-field')
       .forEach((input) => (input.value = ''));
     return;
   }
 
-  window.alert('Failed, Enter valid information');
+  window.alert('Failed, Sign in with valid information');
 });

@@ -34,7 +34,7 @@
   --fc-main: #212121;
   --fc-white: #ffffff;
 
-  --fs-large: 3rem;
+  --fs-large: 2.5rem;
   --fs-medium: 1.4rem;
 }
 
@@ -57,27 +57,19 @@ h3 {
   line-height: 1;
   font-weight: normal;
 }
+
+.main {
+  max-width: 30rem;
+  margin: 3rem auto;
+}
 /* GENERAL STYLING END */
 
-/* HEADER START */
-.header {
-  margin: 3rem 0;
-}
-
+/* FORM START */
 .title {
   text-align: center;
   font-size: var(--fs-large);
 }
-/* HEADER END */
 
-/* MAIN START */
-.main {
-  max-width: 30rem;
-  margin: 0 auto;
-}
-/* MAIN END */
-
-/* FORM START */
 .form {
   padding: 2rem 3rem;
   box-shadow: var(--bx-shadow);
@@ -125,9 +117,10 @@ input-field:focus-visible {
   background-color: var(--fc-main);
   border: none;
   padding: 0.7em 1.5em;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border-radius: var(--b-radius-main);
   cursor: pointer;
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-weight: 600;
+  font-family: inherit;
 }
