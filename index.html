@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
     <title>Constraint Validation API</title>
   </head>
   <body>
     <main class="main">
-      <form>
+      <form id="form" class="form" novalidate>
         <label for="email">Email:</label>
-        <input type="email" id="email" />
+        <input type="email" id="email" class="form-field" required />
+        <div id="error-msg" class="error"></div>
+        <button type="submit" id="submit">Submit</button>
       </form>
     </main>
   </body>
