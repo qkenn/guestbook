@@ -18,7 +18,15 @@
           <label for="username" class="label"
             >username <span class="required-label">*</span></label
           >
-          <input type="text" id="username" class="input-field" required />
+          <input
+            type="text"
+            id="username"
+            class="input-field"
+            minlength="3"
+            maxlength="20"
+            required
+            placeholder="kenny"
+          />
           <div class="error"></div>
         </div>
 
@@ -45,25 +53,38 @@
 
         <div class="form-field">
           <label for="zip" class="label">zip code</label>
-          <input type="text" class="input-field" />
+          <input
+            type="text"
+            class="input-field"
+            pattern="\d{3} \d{2}|\d{5}"
+            id="zip"
+            placeholder="12345 or 123 45"
+          />
         </div>
 
         <div class="form-field">
           <label for="password" class="label"
             >password <span class="required-label">*</span></label
           >
-          <input id="password" type="password" class="input-field" required />
+          <input
+            id="password"
+            type="password"
+            class="input-field"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+            required
+          />
           <div class="error"></div>
         </div>
 
         <div class="form-field">
-          <label for="password-confirm" class="label"
+          <label for="confirm" class="label"
             >confirm password <span class="required-label">*</span></label
           >
           <input
-            id="password-confirm"
+            id="confirm"
             type="password"
             class="input-field"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
             required
           />
           <div class="error"></div>
