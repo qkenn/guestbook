@@ -14,17 +14,62 @@
 
     <main class="main">
       <form id="form" class="form" novalidate>
-        <h2 class="form-title">Sign Up</h2>
+        <div class="form-field">
+          <label for="username" class="label"
+            >username <span class="required-label">*</span></label
+          >
+          <input type="text" id="username" class="input-field" required />
+          <div class="error"></div>
+        </div>
 
         <div class="form-field">
           <label for="email" class="label"
-            ><span class="required-label">*</span>email</label
+            >email <span class="required-label">*</span></label
           >
           <input type="email" id="email" class="input-field" required />
           <div id="error-msg" class="error"></div>
         </div>
 
-        <button type="submit" id="submit" class="submit-btn">Submit</button>
+        <div class="form-field">
+          <label for="country" class="label">country</label>
+          <select id="country" class="input-field">
+            <option value="">Select a country</option>
+            <option value="usa">USA</option>
+            <option value="japan">Japan</option>
+            <option value="sweden">Sweden</option>
+            <option value="australia">Australia</option>
+            <option value="germany">Germany</option>
+          </select>
+          <div class="error"></div>
+        </div>
+
+        <div class="form-field">
+          <label for="zip" class="label">zip code</label>
+          <input type="text" class="input-field" />
+        </div>
+
+        <div class="form-field">
+          <label for="password" class="label"
+            >password <span class="required-label">*</span></label
+          >
+          <input id="password" type="password" class="input-field" required />
+          <div class="error"></div>
+        </div>
+
+        <div class="form-field">
+          <label for="password-confirm" class="label"
+            >confirm password <span class="required-label">*</span></label
+          >
+          <input
+            id="password-confirm"
+            type="password"
+            class="input-field"
+            required
+          />
+          <div class="error"></div>
+        </div>
+
+        <button type="submit" id="submit" class="submit-btn">Sign Up</button>
       </form>
     </main>
   </body>

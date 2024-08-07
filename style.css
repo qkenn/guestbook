@@ -34,10 +34,9 @@
   --fc-main: hsl(0, 0%, 13%);
   --fc-white: hsl(0, 0%, 100%);
 
-  --fs-larger: 3.5rem;
-  --fs-large: 2rem;
-  --fs-medium: 1.5rem;
-  --fs-normal: 1.2rem;
+  --fs-large: 3rem;
+  --fs-medium: 1.4rem;
+  --fs-normal: 1.1rem;
 
   --field-gap: 0.1em;
 }
@@ -52,6 +51,7 @@ body {
   font: 1rem/1.7 'futura-renner', sans-serif;
   font-size: 1rem;
   color: var(--main-fc);
+  padding: 0 2rem;
 }
 
 h1,
@@ -64,39 +64,37 @@ h3 {
 
 /* HEADER START */
 .header {
-  margin: 10rem 0 2rem 0;
+  margin: 3rem 0;
 }
 
 .title {
   text-align: center;
-  font-size: var(--fs-larger);
+  font-size: var(--fs-large);
 }
 /* HEADER END */
 
 /* MAIN START */
 .main {
-  max-width: 35rem;
+  max-width: 30rem;
   margin: 0 auto;
 }
 /* MAIN END */
 
 /* FORM START */
 .form {
-  padding: 3rem;
+  padding: 2rem 3rem;
   box-shadow: var(--bx-shadow);
   border-radius: var(--b-radius-main);
-  margin: 5rem 0;
-}
-
-.form-title {
-  font-size: var(--fs-large);
-  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  margin-bottom: 3rem;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: var(--field-gap);
+  gap: 0.1rem;
 }
 
 .label {
@@ -118,20 +116,16 @@ input-field:focus-visible {
   outline: var(--outline-bold);
 }
 
-.error {
-  color: var(--err-clr);
-}
-
+.error,
 .required-label {
   color: var(--err-clr);
-  margin-right: 0.2em;
 }
 
 .submit-btn {
   color: var(--fc-white);
   background-color: var(--fc-main);
   border: none;
-  padding: 0.5em 1.5em;
+  padding: 0.7em 1.5em;
   font-size: 1rem;
   border-radius: var(--b-radius-main);
   cursor: pointer;
