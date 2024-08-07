@@ -1,8 +1,6 @@
 class FormField {
   constructor(element) {
     this.element = element;
-    this.validityState = element.validity;
-    this.valid = false;
     this.init();
   }
 
@@ -16,8 +14,7 @@ class FormField {
 
   validate = () => {
     if (this.element.validity.valid) {
-      this.valid = true;
-      handleErr(this.element, '');
+      displayErr(this.element, '');
       return;
     }
 
@@ -34,27 +31,27 @@ class FormField {
         break;
       case 'password':
         patternMsg =
-          'password must contain one uppercase, one number and one special charactor';
+          'password must be at least 8 charactors and contain one uppercase, one number and one special charactor';
     }
 
     switch (true) {
-      case this.validityState.valueMissing:
-        handleErr(this.element, `${this.element.id} required`);
+      case this.element.validity.valueMissing:
+        displayErr(this.element, `${this.element.id} required`);
         break;
-      case this.validityState.typeMismatch:
-        handleErr(this.element, 'enter a valid email');
+      case this.element.validity.typeMismatch:
+        displayErr(this.element, 'enter a valid email');
         break;
-      case this.validityState.patternMismatch:
-        handleErr(this.element, patternMsg);
+      case this.element.validity.patternMismatch:
+        displayErr(this.element, patternMsg);
         break;
-      case this.validityState.tooShort:
-        handleErr(
+      case this.element.validity.tooShort:
+        displayErr(
           this.element,
           `too short, needs more ${minLength - valueLength} charactors`
         );
         break;
-      case this.validityState.tooLong:
-        handleErr(
+      case this.element.validity.tooLong:
+        displayErr(
           this.element,
           `too long, ${this.element.id} should be ${maxLength} charactors`
         );
@@ -68,9 +65,9 @@ const email = new FormField(document.getElementById('email'));
 const country = new FormField(document.getElementById('country'));
 const zip = new FormField(document.getElementById('zip'));
 const password = new FormField(document.getElementById('password'));
-const confirm = new FormField(document.getElementById('confirm'));
+const confirmPass = new FormField(document.getElementById('confirm'));
 
-function handleErr(element, msg) {
+function displayErr(element, msg) {
   const errorMsgEl = element.nextElementSibling;
   errorMsgEl.textContent = msg;
 
@@ -81,23 +78,43 @@ function handleErr(element, msg) {
 
 function handleMatch() {
   password.element.addEventListener('input', checkMatch);
-  confirm.element.addEventListener('input', checkMatch);
+  confirmPass.element.addEventListener('input', checkMatch);
 }
 
 function checkMatch() {
   const passValue = password.element.value;
-  const confirmValue = confirm.element.value;
-  const errMsg = confirm.element.nextElementSibling;
+  const confirmValue = confirmPass.element.value;
+  const errMsg = confirmPass.element.nextElementSibling;
 
   if (passValue !== confirmValue && confirmValue) {
     errMsg.textContent = 'password not match';
-    confirm.element.style.outline = '2px solid #ce1212';
+    confirmPass.element.style.outline = '2px solid #ce1212';
     return;
   }
 
-  confirm.valid = true;
   errMsg.textContent = '';
-  confirm.element.style.outline = '2px solid #3b3b3b';
+  confirmPass.element.style.outline = '2px solid #3b3b3b';
 }
 
 handleMatch();
+
+document.getElementById('form').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if (
+    username.element.validity.valid &&
+    email.element.validity.valid &&
+    zip.element.validity.valid &&
+    country.element.validity.valid &&
+    password.element.validity.valid &&
+    confirmPass.element.validity.valid
+  ) {
+    window.alert('Success');
+    document
+      .querySelectorAll('.input-field')
+      .forEach((input) => (input.value = ''));
+    return;
+  }
+
+  window.alert('Failed, Enter valid information');
+});
