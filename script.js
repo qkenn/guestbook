@@ -1,14 +1,13 @@
 class FormField {
   constructor(element) {
     this.element = element;
-    this.id = element.id;
     this.validityState = element.validity;
     this.valid = false;
     this.init();
   }
 
   init = () => {
-    if (this.id === 'confirm') return;
+    if (this.element.id === 'confirm') return;
 
     this.element.addEventListener('input', () => {
       this.validate();
@@ -22,21 +21,43 @@ class FormField {
       return;
     }
 
+    const minLength = +this.element.getAttribute('minlength') ?? null;
+    const maxLength = +this.element.getAttribute('maxlength') ?? null;
+    const valueLength = this.element.value.length;
+
+    let patternMsg = '';
+
+    switch (this.element.id) {
+      case 'zip':
+        patternMsg =
+          'must be five digits with optional space after third digit';
+        break;
+      case 'password':
+        patternMsg =
+          'password must contain one uppercase, one number and one special charactor';
+    }
+
     switch (true) {
       case this.validityState.valueMissing:
-        handleErr(this.element, 'required');
+        handleErr(this.element, `${this.element.id} required`);
         break;
       case this.validityState.typeMismatch:
-        handleErr(this.element, 'invalid email');
+        handleErr(this.element, 'enter a valid email');
         break;
       case this.validityState.patternMismatch:
-        handleErr(this.element, 'invalid pattern');
+        handleErr(this.element, patternMsg);
         break;
       case this.validityState.tooShort:
-        handleErr(this.element, 'too short');
+        handleErr(
+          this.element,
+          `too short, needs more ${minLength - valueLength} charactors`
+        );
         break;
       case this.validityState.tooLong:
-        handleErr(this.element, 'too long');
+        handleErr(
+          this.element,
+          `too long, ${this.element.id} should be ${maxLength} charactors`
+        );
         break;
     }
   };
